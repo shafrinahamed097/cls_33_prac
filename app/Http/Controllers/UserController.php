@@ -28,7 +28,7 @@ class UserController extends Controller
         catch (Exception $e){
             return response()->json([
                 'status' =>'failed',
-                'message'=>'User Registration Successfully Failed :( '
+                'message'=> $e->getMessage()
             ]);
 
         }
