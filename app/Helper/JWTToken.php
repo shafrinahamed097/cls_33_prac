@@ -6,7 +6,7 @@ use Firebase\JWT\Key;
 use Exception;
 
 class JWTToken{
-    function CreateToken($userEmail):string{
+   public static function CreateToken($userEmail):string{
         $key=env('JWT_KEY');
         $payload=[
             'iss'=>'laravel-token',
@@ -19,7 +19,7 @@ class JWTToken{
 
     }
 
-    function VerifyToken($token):string{
+  public static  function VerifyToken($token):string{
        try{
         $key=env('JWT_KEY');
         $decode=JWT::decode($token, new Key($key, 'HS256'));
